@@ -1,0 +1,12 @@
+node_modules/*
+!node_modules/happner-security
+!node_modules/happner-security/*
+!node_modules/happner-user-management
+!node_modules/happner-user-management/*
+.idea
+npm-debug.log
+coverage
+lib/system/activity.log*
+.DS_Store
+resources_temp/*
+*.nedb

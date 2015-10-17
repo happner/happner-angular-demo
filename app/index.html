@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>happner angular demo 1.0</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <link rel="stylesheet" href="/happner-resources/bower/bootstrap/dist/css/bootstrap.min.css">
+    
+    <script src="/happner-resources/bower/jquery/dist/jquery.min.js"></script>
+    <script src="/happner-resources/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/happner-resources/bower/angular/angular.js"></script>
+
+    <style>
+    body {
+      font-size:12px;
+    }
+    </style>
+
+  </head>
+  <body ng-app="happner-angular-demo">
+    <div ng-controller="happner-angular-demo-controller">
+      
+      <table class="table">
+        <tr>
+          <td colspan="3" class="bg-info">
+            <h3>HAPPNER ANGULAR DEMO</h3><p>we have our happner instance, saving to a persisted datastore (see db folder) the datastore is created with a random name every time we run this server, you can change this by removing the filename property in config.js. 
+            </p>
+            <p>
+            The services is started with a special _ADMIN user, the password can be configured in the confog.js. We have an angular service (app/js/happner-service.js) registered that handles authentication to the mesh and gives us a client after it is authenticated. In the app.js, we are using the _ADMIN user to add a new group and user and link the group to the user in browser land. The table below lists the logs of these activities.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="bg-warning">
+            Please note: running this page a second time will raise an error - because you are attempting to re-add a group that already exists in your database - you must restart your happner service to add the group and user again.
+          </td>
+        </tr>
+        <tr>
+          <td style="width:20%">timestamp</td>
+          <td style="width:30%">description</td>
+          <td style="width:50%">data</td>
+        </tr>
+        <tr ng-repeat="log in logs">
+          <td class="bg-{{log.type}}">{{log.timestamp}}</td>
+          <td>{{log.description}}</td>
+          <td>{{log.data}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <!-- mesh client -->
+    <script src="../../api/client"></script>
+
+    <!--happner angular service -->
+    <script src="js/happner-service.js"></script>
+
+    <!--angular app -->
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
