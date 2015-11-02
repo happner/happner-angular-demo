@@ -31,6 +31,9 @@ gridApp.controller('happner-angular-demo-controller', ['$scope', 'happnerService
 
    			//ADD A TEST GROUP
 
+   			pushLog('info', 'have client');
+
+   			pushLog('info', 'have client', happnerClient.exchange);
    			var testGroup = {
 			    name:'TEST GROUP',
 			    
@@ -56,7 +59,7 @@ gridApp.controller('happner-angular-demo-controller', ['$scope', 'happnerService
 			var testUserSaved;
   
 
-			happnerClient.exchange.security.addGroup(testGroup, function(e, result){
+			happnerClient.exchange['happner-angular-demo'].security.addGroup(testGroup, function(e, result){
 
 			  if (e) return pushLog('danger', 'error',  e.toString());
 
